@@ -62,6 +62,7 @@ theme: /
             function getRandomIntInclusive() {
                 var minCeiled = Math.ceil(1000);
                 var maxFloored = Math.floor(9999);
-                numb =  Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+                var numb = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
             }
-        a: Я загадывал число {{numb}}.
+            $session.number = var numb
+        a: Я загадывал число {{$session.number}}.

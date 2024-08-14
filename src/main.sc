@@ -62,14 +62,12 @@ theme: /
                 return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
             }
             $session.number = getRandomIntInclusive(999, 10000);
-            
-        a: Я загадал число {{ $session.number}}.
-        script:
             $reactions.transition("/Проверка");
 
 
     state: Проверка
-        intent: /число
+        intent: /Число
+        a: Я загадал число {{ $session.number}}.
         script:
             # сохраняем введенное пользователем число
             var num = $parseTree._Number;
@@ -84,6 +82,7 @@ theme: /
                     $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
                 else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
 
+  
     state: NoMatch || noContext = true
         event!: noMatch
         random:

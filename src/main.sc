@@ -82,7 +82,7 @@ theme: /
                     else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
 
     state: Ответ
-        q! Ответ
+        q!: Ответ
         a: {{$session.number}}
   
     state: NoMatch || noContext = true

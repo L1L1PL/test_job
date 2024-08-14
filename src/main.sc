@@ -4,7 +4,7 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
 theme: /
 
-     state: Start
+    state: Start
         q!: $regex</start>
         random: 
             a: Привет, я скучал 
@@ -12,6 +12,10 @@ theme: /
             a: Приветик! Рад тебя видеть :)
             a: Ой, ты снова пришел :)
 
-     state: Hello
+    state: Hello
         intent!: /привет
         a: Привет привет
+        
+    state: MarcoPolo 
+        q!: Марко 
+        a: Поло

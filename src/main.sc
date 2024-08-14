@@ -51,7 +51,7 @@ theme: /
                 go!: /Answer/Нет
                 
     state: Game
-    script:
-        $session.number = $jsapi.random(100) + 1;
-    a: Я загадывал число {{$session.number}}.
+        script:
+            $session.number = $jsapi.random(100) + 1;
+        a: Я загадывал число {{$session.number}}.
             

@@ -1,12 +1,17 @@
+require: patterns.sc
+
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
-
 theme: /
 
-    state:  Start
+    state: Start
         q!: $regex</start>
-        a: Привет! Давай поиграем в "Быки и коровы"?
-     
-    state: Answer
-        q!: /да
-        a: Отлично, ты знаком с правилами?
+        random: 
+            a: Привет, я скучал 
+            a: Здравствуй!
+            a: Приветик! Рад тебя видеть :)
+            a: Ой, ты снова пришел :)
+
+    state: Hello
+        intent!: /привет
+        a: Привет привет

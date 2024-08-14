@@ -67,7 +67,6 @@ theme: /
 
     state: Проверка
         intent: /Число
-        a: Я загадал число {{ $session.number}}.
         script:
             # сохраняем введенное пользователем число
             var num = $parseTree._Number;

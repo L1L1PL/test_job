@@ -20,7 +20,7 @@ theme: /
                 q: Нет
                 a: Ну и ладно! Если передумаешь — скажи "давай поиграем"
 
-   state: Game
+    state: Game
         script:
             function getRandomIntInclusive(min, max) {
                 var minCeiled = Math.ceil(min);

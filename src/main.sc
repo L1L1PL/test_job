@@ -68,4 +68,28 @@ theme: /
             }
             $session.number = getRandomIntInclusive(999, 10000);
             
-        a: Я загадывал число {{$session.number}}.
+            
+        a: Я загадал число.
+        go!: /Проверка
+        
+        state: Проверка
+        intent: /Число
+        script:
+            # сохраняем введенное пользователем число
+            var num = $parseTree._Number;
+
+            # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
+            if (num == $session.number) {
+                $reactions.answer("Ты выиграл! Хочешь еще раз?");
+            }
+            else
+                if (num < $session.number)
+                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
+                else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
+
+    state: NoMatch || noContext = true
+        event!: noMatch
+        random:
+            a: Я не понял.
+            a: Что вы имеете в виду?
+            a: Ничего не пойму

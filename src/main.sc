@@ -10,6 +10,6 @@ theme: /
         q!: $regex</start>
         a: Привет! Давай поиграем в "Быки и коровы"?
      
-     state: Answer
+    state: Answer
         intent!: /да
         a: Отлично, ты знаком с правилами?

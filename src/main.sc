@@ -63,7 +63,7 @@ theme: /
             }
             $session.number = getRandomIntInclusive(999, 10000);
             
-        #a: Я загадал число {{ $session.number}}.
+        a: Я загадал число {{ $session.number}}.
         script:
             $reactions.transition("/Проверка");
 

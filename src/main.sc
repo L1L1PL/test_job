@@ -69,7 +69,7 @@ theme: /
             $session.number = getRandomIntInclusive(999, 10000);
             
             
-        a: Я загадал число.
+        a: Я загадал число {{ $session.number}}.
         go!: /Проверка
         
         state: Проверка

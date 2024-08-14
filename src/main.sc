@@ -59,6 +59,3 @@ theme: /
                 
     state: Game
         getRandomIntInclusive:
-            
-            answerFormat = number
-        a: Я загадывал число .

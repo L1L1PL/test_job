@@ -44,7 +44,8 @@
       "name" : "Number",
       "entity" : "duckling.number",
       "required" : true,
-      "prompts" : [ "Я загадал число. Твоя догадка?" ]
+      "prompts" : [ "Я загадал число. Твоя догадка?" ],
+      "array" : false
     } ],
     "priority" : 0
   }, {
@@ -84,7 +85,8 @@
       "name" : "N",
       "entity" : "duckling.number",
       "required" : true,
-      "prompts" : [ ]
+      "prompts" : [ ],
+      "array" : false
     } ],
     "priority" : 0
   } ],

@@ -59,6 +59,5 @@ theme: /
                 
     state: Game
         SumTwoNumbers:
-            
-            
-        a: Я загадывал число {{$session.number}}.
+            answerFormat = number
+        a: Я загадывал число .

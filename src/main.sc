@@ -14,7 +14,9 @@ theme: /
         go!: /Rules
     state: Rejection
         q: Нет
-        random! a: Мне жаль | Если захочешь, буду ждать | 
+        random: 
+            a: Мне жаль
+            a: Буду ждать
     
     state: Rules
         q!: Правила

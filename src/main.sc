@@ -19,9 +19,6 @@ theme: /
     state: MarcoPolo 
         q!: Марко 
         a: Поло
-    
-    state: MyTest
-        q!: * $kakdela *
         go!: /MyTest2
         
     state: MyTest2

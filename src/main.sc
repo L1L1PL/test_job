@@ -58,6 +58,7 @@ theme: /
                 go!: /Answer/Нет
                 
     state: Game
-        SumTwoNumbers:
+        getRandomIntInclusive:
+            
             answerFormat = number
         a: Я загадывал число .

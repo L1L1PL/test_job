@@ -1,4 +1,4 @@
-function getRandomIntInclusive(min, max) {
+function getRandomIntInclusive(1000, 9999) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive

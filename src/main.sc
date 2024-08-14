@@ -8,6 +8,7 @@ theme: /
     state: Start
         q!: $regex</start>
         a: Привет! Хочешь сыграть в игру "Быки и корова"?
+        $session.number = 0
         go!: /Answer
 
     state: Hello

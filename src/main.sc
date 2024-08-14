@@ -18,6 +18,13 @@ theme: /
     state: GameStart
         q!: игра
         a: Начнем игру?
+        state: Да
+            q: Да
+            go!: /Game
+        state: Нет
+            q: Да
+            a: Ну и ладно! Если передумаешь — скажи "давай поиграем"
+        
 
     state: Answer
 

@@ -13,7 +13,7 @@ theme: /
             a: Ой, ты снова пришел :)
 
     state: Hello
-        q!: /привет
+        q!: привет
         a: Привет привет
         
     state: MarcoPolo 

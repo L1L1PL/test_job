@@ -13,3 +13,6 @@ nlp:
   intentNoMatchThresholds:
     phrases: 0.2
     patterns: 0.2
+
+customTags:
+  - src/blocks/RandomNumb/rand.json

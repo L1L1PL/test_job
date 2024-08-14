@@ -1,0 +1,41 @@
+{
+    "tagName": "RandomNumb",
+    "customTagType": "JS",
+    "scenarioFile": "functions.js",
+    "functionName": "getRandomIntInclusive",
+    "caption": {
+        "ru": "Генерация числа",
+        "eng": "Number generation"
+    },
+    
+    "parameters": [
+        {
+            "name": "answerFormat",
+            "type": "string",
+            "required": false,
+            "localization": {
+                "ru": "Формат ответа",
+                "eng": "Answer format"
+            },
+            "userInterfaceField": {
+                "type": "select",
+                "options": [
+                    {
+                        "value": "number",
+                        "localization": {
+                            "eng": "Number only",
+                            "ru": "Только число"
+                        }
+                    },
+                    {
+                        "value": "full",
+                        "localization": {
+                            "eng": "Full expression",
+                            "ru": "Полное выражение"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

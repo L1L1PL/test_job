@@ -59,6 +59,5 @@ theme: /
                 
     state: Game
         script:
-            $session.number = $jsapi.random(100) + 1;
+            $session.number = $getRandomIntInclusive;
         a: Я загадывал число {{$session.number}}.
-            

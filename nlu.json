@@ -69,6 +69,24 @@
       "refs" : [ ]
     },
     "priority" : 0
+  }, {
+    "path" : "/число",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@duckling.number"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "N",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ ]
+    } ],
+    "priority" : 0
   } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],

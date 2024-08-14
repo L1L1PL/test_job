@@ -72,20 +72,20 @@ theme: /
         a: Я загадал число {{ $session.number}}.
 
         
-        state: Проверка
-            q: /Число
-            script:
-                # сохраняем введенное пользователем число
-                var num = $parseTree._Number;
+    state: Проверка
+        q: /Число
+        script:
+            # сохраняем введенное пользователем число
+            var num = $parseTree._Number;
     
-                # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
-                if (num == $session.number) {
-                    $reactions.answer("Ты выиграл! Хочешь еще раз?");
-                }
-                else
-                    if (num < $session.number)
-                        $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
-                    else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
+            # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
+            if (num == $session.number) {
+                $reactions.answer("Ты выиграл! Хочешь еще раз?");
+            }
+            else
+                if (num < $session.number)
+                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
+                else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
 
     state: NoMatch || noContext = true
         event!: noMatch

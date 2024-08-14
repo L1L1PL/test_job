@@ -77,8 +77,8 @@ theme: /
                 $reactions.transition("/Правила/Согласен?");
             }
             else
-                if (num < $session.number){
-                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]))};
+                if (num < $session.number)
+                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
                 else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
 
     state: Ответ

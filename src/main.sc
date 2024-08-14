@@ -9,7 +9,7 @@ theme: /
     state:  Start
         q!: $regex</start>
         a: Привет! Давай поиграем в "Быки и коровы"?
-        go!: Answer
-        state: Answer
-            if: "Да"
-                a: Ты знаком с правилами?
+     
+     state: Answer
+        intent!: /да
+        a: Отлично, ты знаком с правилами?

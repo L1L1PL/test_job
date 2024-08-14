@@ -23,20 +23,22 @@ theme: /
     state: GameStart
         q!: игра
         a: Начнем игру?
-        script:
-                $session.number = 0;
         state: Да
-            intent: /согласие
+            q: Да
             go!: /Game
         state: Нет
-            q: Нет
+            q: нет
             a: Ну и ладно! Если передумаешь — скажи "давай поиграем"
+        
+
 
     state: Rules
         q!: Правила
         a: Ты уже знаком с правилами?
         state: Да
             q: Да
+            script:
+                $session.number = 0;
             go!: /GameStart
 
         state: Нет
@@ -44,8 +46,7 @@ theme: /
             a: Ничего, я расскажу.
             a: Игра рассчитана на двух игроков (пользователь и чатбот). Чатбот задумывает тайное 4-значное число с неповторяющимися цифрами. Пользователь делает первую попытку отгадать число. Попытка — это 4-значное число с неповторяющимися цифрами, сообщаемое чатботу. Чатбот сообщает в ответ, сколько цифр угадано без совпадения с их позициями в тайном числе (то есть количество коров) и сколько угадано вплоть до позиции в тайном числе (то есть количество быков)
             a: Теперь ты знаком с правилами. Начинаем?
-            script:
-                $session.number = 0;
+            
             state: Да
                 intent: /согласие
                 a: Отлично
@@ -62,15 +63,18 @@ theme: /
                 return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
             }
             $session.number = getRandomIntInclusive(999, 10000);
+            
+        #a: Я загадал число {{ $session.number}}.
+        script:
             $reactions.transition("/Проверка");
 
 
     state: Проверка
-        intent: /Число
+        intent: /число
         script:
             # сохраняем введенное пользователем число
             var num = $parseTree._Number;
-    
+
             # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
             if (num == $session.number) {
                 $reactions.answer("Ты выиграл! Хочешь еще раз?");
@@ -81,6 +85,9 @@ theme: /
                     $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
                 else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
 
-    state: Ответ
-        q!: Ответ
-        a: {{$session.number}}
+    state: NoMatch || noContext = true
+        event!: noMatch
+        random:
+            a: Я не понял.
+            a: Что вы имеете в виду?
+            a: Ничего не пойму

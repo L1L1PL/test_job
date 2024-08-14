@@ -50,25 +50,8 @@ theme: /
             state: Нет
                 go!: /Answer/Нет
                 
-        state: Game
-        # сгенерируем случайное число и перейдем в стейт /Проверка
-        script:
-            $session.number = $jsapi.random(100) + 1;
-            # $reactions.answer("Загадано {{$session.number}}");
-            $reactions.transition("/Проверка");
-
-    state: Проверка
-        intent: /Число
-        script:
-            # сохраняем введенное пользователем число
-            var num = $parseTree._Number;
-
-            # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
-            if (num == $session.number) {
-                $reactions.answer("Ты выиграл! Хочешь еще раз?");
-                $reactions.transition("/Правила/Согласен?");
-            }
-            else
-                if (num < $session.number)
-                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
-                else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
+    state: Game
+    script:
+        $session.number = $jsapi.random(100) + 1;
+    a: Я загадывал число {{$session.number}}.
+            

@@ -22,6 +22,32 @@
     }
   },
   "intents" : [ {
+    "path" : "/согласие",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "да"
+    }, {
+      "text" : "начнем"
+    }, {
+      "text" : "ДА"
+    }, {
+      "text" : "понятно"
+    }, {
+      "text" : "Да"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Number",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ "Я загадал число. Твоя догадка?" ]
+    } ],
+    "priority" : 0
+  }, {
     "path" : "/пока",
     "enabled" : true,
     "shared" : false,

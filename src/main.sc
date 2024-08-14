@@ -73,7 +73,7 @@ theme: /
 
         
     state: Проверка
-        q: /Число
+        intent: /Число
         script:
             # сохраняем введенное пользователем число
             var num = $parseTree._Number;

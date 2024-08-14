@@ -41,7 +41,8 @@ theme: /
         a: Ты уже знаком с правилами?
         state: Да
             q: Да
-            $session.number = 0;
+            script:
+                $session.number = 0;
             go!: /GameStart
 
         state: Нет

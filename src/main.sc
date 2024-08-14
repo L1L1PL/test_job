@@ -55,18 +55,11 @@ theme: /
                 go!: /Answer/Нет
                 
     state: Game
+        # сгенерируем случайное число и перейдем в стейт /Проверка
         script:
-            function getRandomIntInclusive(min, max) {
-                var minCeiled = Math.ceil(min);
-                var maxFloored = Math.floor(max);
-                return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
-            }
-            $session.number = getRandomIntInclusive(999, 10000);
-            
-        #a: Я загадал число {{ $session.number}}.
-        script:
+            $session.number = $jsapi.random(100) + 1;
+            # $reactions.answer("Загадано {{$session.number}}");
             $reactions.transition("/Проверка");
-
 
     state: Проверка
         intent: /число

@@ -62,9 +62,9 @@ theme: /
     state: Game
         script:
             function getRandomIntInclusive() {
-                var minCeiled = Math.ceil(1000);
-                var maxFloored = Math.floor(9999);
-                var numb = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+                const minCeiled = Math.ceil(1000);
+                const maxFloored = Math.floor(9999);
+                const numb = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
                 $session.number = numb;
             }
             

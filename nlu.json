@@ -82,7 +82,7 @@
     },
     "patterns" : [ ],
     "slots" : [ {
-      "name" : "N",
+      "name" : "Number",
       "entity" : "duckling.number",
       "required" : true,
       "prompts" : [ ],

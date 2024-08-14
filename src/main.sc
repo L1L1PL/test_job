@@ -16,7 +16,7 @@ theme: /
         state: Да
             q: Да
             a: Отлично
-            go! /Rules
+            go!: /Rules
 
         state: Нет
             q: Нет

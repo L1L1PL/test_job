@@ -8,7 +8,6 @@ theme: /
     state: Start
         q!: $regex</start>
         a: Привет! Хочешь сыграть в игру "Быки и корова"?
-        $session.number = 0
         go!: /Answer
 
     state: Hello
@@ -63,6 +62,6 @@ theme: /
             function getRandomIntInclusive() {
                 var minCeiled = Math.ceil(1000);
                 var maxFloored = Math.floor(9999);
-                $session.number =  Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+                numb =  Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
             }
-        a: Я загадывал число {{$session.number}}.
+        a: Я загадывал число {{numb}}.

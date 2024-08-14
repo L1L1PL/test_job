@@ -6,7 +6,6 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        intent!: /LetsPlay
         script:
         a: Привет! Хочешь сыграть в игру "Быки и корова"?
     state: Confirmation

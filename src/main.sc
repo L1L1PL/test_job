@@ -36,17 +36,17 @@ theme: /
         a: Я загадал число {{ $session.number}}.
         script:
             # сохраняем введенное пользователем число
-            var num = String($parseTree._Number);
+            var num = ($parseTree._Number);
     
-            if (num === String($session.number)) {  // Используем строгое сравнение === для строк
+            if (String(num) === String($session.number)) {  // Используем строгое сравнение === для строк
                     $reactions.answer("Ты выиграл! Хочешь еще раз?");
             } else {
                 var bulls = 0;
                 var cows = 0;
                 for (var i = 0; i < 4; i++) {
-                    if (num.charAt(i) === String($session.number).charAt(i)) {
+                    if (String(num).charAt(i)) === String($session.number).charAt(i)) {
                         bulls++;
-                    } else if (String($session.number).includes(num.charAt(i))) {
+                    } else if (String($session.number).includes(String(num).charAt(i))) {
                         cows++;
                     }
                 }

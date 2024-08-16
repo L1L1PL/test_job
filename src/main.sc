@@ -42,7 +42,7 @@ theme: /
                     $reactions.answer("Ты выиграл! Хочешь еще раз?");
             } else {
                 var tip = typeof num
-                $reactions.answer(tip);
+                $reactions.answer(tip,$session.number);
             }
 
 

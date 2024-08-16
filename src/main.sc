@@ -59,39 +59,28 @@ theme: /
                         
                     }
                 }
-                // Функция для преобразования чисел в слова
-                var def_numb = function(i, list) {
-                    var word;
-                    if (i === 2) {
-                        word = "две цифры: «" + list[0] + "» и «" + list[1] + "» - угаданы";
-                    } else if (i === 3) {
-                        word = "три цифры: «" + list[0] + "», «" + list[1] + "» и «" + list[2] + "» - угаданы";
-                    } else if (i === 4) {
-                        word = "четыре цифры: «" + list[0] + "», «" + list[1] + "», «" + list[2] + "» и «" + list[3] + "» - угаданы";
-                    }
-                    return word;
-                };
-                
                 var react_bull;
                 if (bulls === 0) {
-                    react_bull = bulls + ' быков.';
-                } else if (bulls === 1) {
-                    react_bull = bulls + ' бык (одна цифра: «' + bull_list + '» - угадана вплоть до позиции).';
+                    var react_bull = bulls +' быков.';
+                } 
+                    var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";;
                 } else {
-                    react_bull = bulls + ' быка';
+                    var react_bull = ' быка';
                 }
                 
                 var react_cows;
-                if (cows === 0) {
-                    react_cows = cows + ' коров и ';
+                if (cows=== 0) {
+                    var react_cows = cows + ' коров и ';
                 } else if (cows === 1) {
-                    react_cows = cows + ' корова (одна цифра: «' + cow_list + '» - угадана на неверной позиции) и ';
+                    var react_cows = cows + ' корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
                 } else {
-                    react_cows = def_numb(cows, cow_list) + " (на неверных позициях) и ";
+                    var react_cows = cows + ' коровы' + "("cows" цифры: «"+cow_list.join("», «") "- угаданы на неверных позициях) и ";
                 }
-
-                $reactions.answer("Результат: " + react_cows + react_bull);
-        }
+                
+            
+            
+            $reactions.answer("Результат: " + react_cows + react_bull);
+            }
         
     state: NoMatch || noContext = true
         event!: noMatch

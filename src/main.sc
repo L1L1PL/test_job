@@ -61,11 +61,6 @@ theme: /
                 }
             
             }
-        go!: Ответ
-        
-    state: Ответ
-        script:
-            
             $reactions.answer("Быки: " + react_bull + ", Коровы: " + cows);
             
 

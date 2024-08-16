@@ -59,7 +59,7 @@ theme: /
                         
                     }
                 }
-                function def_numb(i, list) {
+                var def_numb = function(i, list) {
                     var word;
                     if (i === 2) {
                         word = "две цифры: «" + list[0] + "» и «" + list[1] + "» - угаданы";
@@ -69,28 +69,25 @@ theme: /
                         word = "четыре цифры: «" + list[0] + "», «" + list[1] + "», «" + list[2] + "» и «" + list[3] + "» - угаданы";
                     }
                     return word;
-                }
+                };
+                
                 var react_bull;
                 if (bulls === 0) {
-                    var react_bull = bulls +' быков.';
-                } 
-                    var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";;
+                    react_bull = bulls + ' быков.';
+                } else if (bulls === 1) {
+                    react_bull = bulls + ' бык (одна цифра: «' + bull_list + '» - угадана вплоть до позиции).';
                 } else {
-                    var react_bull = ' быка';
+                    react_bull = bulls + ' быка';
                 }
                 
                 var react_cows;
-                if (cows=== 0) {
-                    var react_cows = cows + ' коров и ';
+                if (cows === 0) {
+                    react_cows = cows + ' коров и ';
                 } else if (cows === 1) {
-                    var react_cows = cows + ' корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
+                    react_cows = cows + ' корова (одна цифра: «' + cow_list + '» - угадана на неверной позиции) и ';
                 } else {
-                    var react_cows = def_numb(cows, cow_list) + " (на неверных позициях) и ";
+                    react_cows = def_numb(cows, cow_list) + " (на неверных позициях) и ";
                 }
-                
-            $reactions.answer("Результат: " + react_cows + react_bull);
-        }
-        
     state: NoMatch || noContext = true
         event!: noMatch
         random:

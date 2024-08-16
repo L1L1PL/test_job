@@ -48,10 +48,12 @@ theme: /
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
-                    }
-                    $reactions.answer(bulls)
-                }    
-            
+                    } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
+                    cows++;
+                }
+            }
+            // Выводим количество быков и коров
+            $reactions.answer("Быки: " + bulls + ", Коровы: " + cows);
             }
 
 

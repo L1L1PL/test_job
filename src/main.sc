@@ -43,10 +43,10 @@ theme: /
             } else {
                 var bulls = 0;
                 var cows = 0;
-                var num =  num.toString()
-                var guess_number = $session.number.toString()
+                var num =  num.toString();
+                var guess_number = $session.number.toString();
                 for (var i = 0; i < 4; i++) {
-                    $reactions.answer((num.charAt(i))
+                    $reactions.answer((num.charAt(i));
                 }    
             
             }

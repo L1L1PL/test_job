@@ -52,6 +52,7 @@ theme: /
 
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
+                        
                     }
                 }
                 var react_bull;

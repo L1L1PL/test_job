@@ -60,11 +60,9 @@ theme: /
                     var react_bull = 'быка';
                 }
             
-            }
-            $reactions.answer("Быки: " + react_bull + ", Коровы: " + cows);
             
-
-
+            $reactions.answer("Быки: " + react_bull + ", Коровы: " + cows);
+            }
         
     state: NoMatch || noContext = true
         event!: noMatch

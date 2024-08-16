@@ -45,6 +45,8 @@ theme: /
                 var cows = 0;
                 var num =  num.toString();
                 var guess_number = $session.number.toString();
+                var cows_list = new Array();
+                var bulls_lis = new Array();
                 var cows_list = [];
                 var bulls_lis = [];
                 for (var i = 0; i < 4; i++) {

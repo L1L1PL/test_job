@@ -41,10 +41,14 @@ theme: /
             if (num === String($session.number)) {  // Используем строгое сравнение === для строк
                     $reactions.answer("Ты выиграл! Хочешь еще раз?");
             } else {
+                var bulls = 0;
+                var cows = 0;
                 var num =  num.toString()
                 var guess_number = $session.number.toString()
-                var tip = typeof guess_number
-                $reactions.answer(tip);
+                for (var i = 0; i < 4; i++) {
+                    $reactions.answer((num.charAt(i))
+                
+                
             }
 
 

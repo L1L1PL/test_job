@@ -89,6 +89,26 @@
       "array" : false
     } ],
     "priority" : 0
+  }, {
+    "path" : "/new_game",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "еще"
+    }, {
+      "text" : "еще раз"
+    }, {
+      "text" : "игра"
+    }, {
+      "text" : "играть"
+    }, {
+      "text" : "давай поиграем"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
   } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],

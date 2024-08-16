@@ -27,7 +27,7 @@ theme: /
                 var maxFloored = Math.floor(max);
                 return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
             }
-            $session.number = getRandomIntInclusive(999, 10000);
+            $session.number = getRandomIntInclusive(999, 10000).toString();
             $reactions.transition("/Проверка");
         
             

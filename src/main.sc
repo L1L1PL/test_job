@@ -45,13 +45,12 @@ theme: /
             else
                 int bulls = 0;
                 int cows = 0;
-        
                 for (int i = 0; i < 4; i++) {
-                    if (guess.charAt(i) == $session.number.charAt(i)) {
+                    if (num.charAt(i) == $session.number.charAt(i)) {
                         bulls++;
-                    } else if (secretNumber.contains(String.valueOf(guess.charAt(i)))) {
+                    } else if ($session.number.contains(String.valueOf(num.charAt(i)))) {
                         cows++;
-                    return(("Быки: " + bulls + ", Коровы: " + cows))
+    
                     }
                 }
 

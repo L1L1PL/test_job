@@ -43,7 +43,7 @@ theme: /
             } else {
                 var tip = typeof num
                 $reactions.answer(tip);
-            
+            }
 
 
         

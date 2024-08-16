@@ -45,9 +45,12 @@ theme: /
                 var cows = 0;
                 var num =  num.toString();
                 var guess_number = $session.number.toString();
+                const items_cows = []
+                const items_bulls = []
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
+                        items_bulls[i] == num.charAt(i);
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
                 }
@@ -71,7 +74,7 @@ theme: /
                 }
             
             
-            $reactions.answer("Быки: " + bulls +" "+ react_bull + ", Коровы: " + cows + " " + react_cows);
+            $reactions.answer("Быки: " + bulls +" "+ react_bull +"(" + items_bulls +")" + ", Коровы: " + cows + " " + react_cows);
             }
         
     state: NoMatch || noContext = true

@@ -97,11 +97,12 @@ theme: /
                 }
                 
                 // Выражение 'else if' не имеет смысла здесь
-                if (message === true) {
-                    $reactions.answer("Цифры должны быть разными");
-                }
-                else if (num.length != 4) {
-                    $reactions.answer("Пожалуйста, напиши четырехзначное число");
+                
+                if (num.length != 4) {
+                    $reactions.answer("Пожалуйста, напиши четырехзначное число.");
+                }else if (message === true) {
+                    $reactions.answer("Цифры не должны повторяться.");
+                
                 }else{
                     for (var i = 0; i < 4; i++) {
                         if (num.charAt(i) === guess_number.charAt(i)) {

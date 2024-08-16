@@ -52,7 +52,7 @@ theme: /
                 }
                 // Выводим количество быков и коров
                 $reactions.answer("Быки: " + bulls + ", Коровы: " + cows);
-        }
+            }
 
         
     state: NoMatch || noContext = true

@@ -59,6 +59,7 @@ theme: /
                         
                     }
                 }
+                // Функция для преобразования чисел в слова
                 var def_numb = function(i, list) {
                     var word;
                     if (i === 2) {
@@ -88,6 +89,11 @@ theme: /
                 } else {
                     react_cows = def_numb(cows, cow_list) + " (на неверных позициях) и ";
                 }
+
+                
+            $reactions.answer("Результат: " + react_cows + react_bull);
+        }
+        
     state: NoMatch || noContext = true
         event!: noMatch
         random:

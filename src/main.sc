@@ -71,7 +71,7 @@ theme: /
                 }
             
             
-            $reactions.answer("Быки: " + bulls + react_bull + ", Коровы: " + cows + react_cows);
+            $reactions.answer("Быки: " + bulls +" "+ react_bull + ", Коровы: " + cows + " " + react_cows);
             }
         
     state: NoMatch || noContext = true

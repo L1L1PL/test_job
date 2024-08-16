@@ -59,27 +59,39 @@ theme: /
                         
                     }
                 }
+                function def_numb(i, list){
+                    var word;
+                    if (i === 2) {
+                          var word = "две цифры: «"list[0]+"» и «"list[1]+"» - угаданы "
+                      } else if (i === 3) {
+                          var word = "три цифры: «"list[0]+"», «"list[1]+"» и «"list[2]+"» - угаданы "
+                      } else if (i === 4) {
+                          var word = "четыре цифры: «"list[0]+"», «"list[1]+"», «"list[2]+"» и «"list[3]+"» - угаданы "
+                      }
+                    return(word)
+                }
                 var react_bull;
                 if (bulls === 0) {
-                    var react_bull = bulls +'быков';
-                } else if (bulls === 1) {
-                    var react_bull = bulls + 'бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции)";;
+                    var react_bull = bulls +' быков.';
+                } 
+                    var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";;
                 } else {
-                    var react_bull = 'быка';
+                    var react_bull = ' быка';
                 }
                 
                 var react_cows;
                 if (cows=== 0) {
-                    var react_cows = cows + 'коров';
+                    var react_cows = cows + ' коров и ';
                 } else if (cows === 1) {
-                    var react_cows = cows + 'корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици)";
+                    var react_cows = cows + ' корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
                 } else {
-                    var react_cows = cows + 'коровы' + "(цифры: «"+cow_list+"» - угаданы на неверных позициях)";
+                    var react_cows = console.log(def_numb(cows, cow_list)) + "на неверных позициях) и "
+
                 }
                 
             
             
-            $reactions.answer("Результат: " + );
+            $reactions.answer("Результат: " + react_cows + react_bull);
             }
         
     state: NoMatch || noContext = true

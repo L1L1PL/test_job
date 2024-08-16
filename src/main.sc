@@ -40,7 +40,19 @@ theme: /
     
             if (num === String($session.number)) {  // Используем строгое сравнение === для строк
                     $reactions.answer("Ты выиграл! Хочешь еще раз?");
-            }
+            } else {
+                var bulls = 0;
+                var cows = 0;
+                for (var i = 0; i < 4; i++) {
+                    if (num.charAt(i) === String($session.number).charAt(i)) {
+                        bulls++;
+                    } else if (String($session.number).includes(num.charAt(i))) {
+                        cows++;
+                    }
+                }
+                // Выводим количество быков и коров
+                $reactions.answer("Быки: " + bulls + ", Коровы: " + cows);
+        }
 
         
     state: NoMatch || noContext = true

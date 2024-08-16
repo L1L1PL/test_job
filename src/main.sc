@@ -74,7 +74,7 @@ theme: /
                 } else if (cows === 1) {
                     var react_cows = cows + ' корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
                 } else {
-                    var react_cows = cows + ' коровы' + "("cows" цифры: «"+cow_list.join("», «") "- угаданы на неверных позициях) и ";
+                    var react_cows = cows + ' коровы' + "("cows" цифры: «"+cow_list.join(', ')+"» - угаданы на неверных позициях) и ";
                 }
                 
             $reactions.answer("Результат: " + react_cows + react_bull);

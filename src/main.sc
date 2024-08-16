@@ -41,8 +41,8 @@ theme: /
             if (num === String($session.number)) {  // Используем строгое сравнение === для строк
                     $reactions.answer("Ты выиграл! Хочешь еще раз?");
             } else {
-                var tip = typeof num
-                $reactions.answer(tip,$session.number);
+                var tip = typeof num.toString())
+                $reactions.answer(tip);
             }
 
 

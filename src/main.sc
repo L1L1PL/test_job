@@ -45,7 +45,7 @@ theme: /
                 var cows = 0;
                 var num = num.toString();
                 var guess_number = $session.number.toString();
-                const people = [];
+                const bulls = [];
                 // Считаем быков и коров
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {

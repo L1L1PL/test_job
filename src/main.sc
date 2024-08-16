@@ -40,9 +40,8 @@ theme: /
 
             # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
             if (num == $session.number) {
-                $reactions.answer("Ты выиграл! Хочешь еще раз?");
-            }
-            else;
+                 $reactions.answer("Ты выиграл! Хочешь еще раз?");
+            } else {
                 int bulls = 0;
                 int cows = 0;
                 for (int i = 0; i < 4; i++) {
@@ -50,11 +49,11 @@ theme: /
                         bulls++;
                     } else if ($session.number.contains(String.valueOf(num.charAt(i)))) {
                         cows++;
-    
                     }
                 }
-
-        return new Result(bulls, cows);
+                // Выводим количество быков и коров (добавьте свой код реакции здесь)
+                $reactions.answer("Быки: " + bulls + ", Коровы: " + cows);
+}
     state: NoMatch || noContext = true
         event!: noMatch
         random:

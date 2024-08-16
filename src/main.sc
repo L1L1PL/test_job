@@ -56,10 +56,14 @@ theme: /
         
     state: Ответ
         script:
-            if (bulls > 1) {
+            var react_bull;
+            if (bulls = 0) {
                 var react_bull = 'быков';
-            }else {
+            else if (bulls = 1) {
                 var react_bull = 'бык';
+            }
+            }else {
+                var react_bull = 'быка';
             }
             $reactions.answer("Быки: " + react_bull + ", Коровы: " + cows);
             

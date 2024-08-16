@@ -52,12 +52,26 @@ theme: /
 
     state: Игра
             script:
-                function getRandomIntInclusive(min, max) {
-                    var minCeiled = Math.ceil(min);
-                    var maxFloored = Math.floor(max);
-                    return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+                function getRandomIntInclusive() {
+                    var digits = '0123456789';
+                    var usedDigits = [];
+                    var number = '';
+                
+                    while (number.length < 4) {
+                        var randomIndex = Math.floor(Math.random() * digits.length);
+                        var digit = digits[randomIndex];
+                
+                        // Проверяем, чтобы цифра не повторялась
+                        if (usedDigits.indexOf(digit) === -1) {
+                            usedDigits.push(digit);
+                            number += digit;
+                        }
                     }
-                $session.number = getRandomIntInclusive(999, 10000);
+                
+                    return number;
+                
+                }
+                $session.number = getRandomIntInclusive();
                 //$reactions.transition("/Проверка");
             go: /Проверка
             
@@ -74,7 +88,18 @@ theme: /
                 var bull_list = [];
                 var cow_list = [];
                 // Считаем быков и коров
-                if (num.length != 4) {
+                var message = false;
+                for (var i = 0; i < 4; i++) {
+                    if (num[i] === num[i - 1]) {
+                        message = true;  // Нет необходимости повторно объявлять переменную
+                    }
+                }
+                
+                // Выражение 'else if' не имеет смысла здесь
+                if (message === true) {
+                    $reactions.answer("Цифры должны быть разными");
+                }
+                else if (num.length != 4) {
                     $reactions.answer("Пожалуйста, напиши четырехзначное число");
                 }else{
                     for (var i = 0; i < 4; i++) {
@@ -88,10 +113,11 @@ theme: /
                         }    
                     }
                 
-                    
                     if (bulls === 4) {
                          $reactions.answer("Ты выиграл! Хочешь еще раз?");
-                    }else {
+                    }
+                    
+                    else {
                         var word;
                         if (bulls === 2) {
                           var word = 'две'
@@ -130,7 +156,10 @@ theme: /
                     }
                 }
     
-        
+    state: Ответ
+        q!: Ответ
+        a: Я загадал число {{ $session.number}}.
+
     state: NoMatch || noContext = true
         event!: noMatch
         random:

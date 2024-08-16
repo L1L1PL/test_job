@@ -54,7 +54,7 @@ theme: /
                 var react_bull;
                 if (bulls = 0) {
                     var react_bull = 'быков';
-                else if (bulls = 1) {
+                }else if (bulls = 1) {
                     var react_bull = 'бык';
                 }else {
                     var react_bull = 'быка';

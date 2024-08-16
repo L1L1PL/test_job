@@ -59,13 +59,23 @@ theme: /
                         
                     }
                 }
+                var word;
+                  if (i === 1){
+                      var word = 'одна'
+                  } else if (i === 2) {
+                      var word = 'две'
+                  } else if (i === 3) {
+                      var word = 'три'
+                  } else if (i === 4) {
+                      var word = 'четыре' 
+                  }
                 var react_bull;
                 if (bulls === 0) {
                     var react_bull = bulls +' быков.';
                 } else if (bulls ===1){
                     var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";
                 } else {
-                    var react_bull = ' быка';
+                    var react_bull = bulls + ' быка' + "(" + bulls + " цифры: «"+bull_list.join('», «')+"» - угаданы вплоть до позиции).";
                 }
                 
                 var react_cows;
@@ -74,7 +84,7 @@ theme: /
                 } else if (cows === 1) {
                     var react_cows = cows + ' корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
                 } else {
-                    var react_cows = cows + ' коровы' + "("cows" цифры: «"+cow_list.join(', ')+"» - угаданы на неверных позициях) и ";
+                    var react_cows = cows + ' коровы' + "(" + word + " цифры: «"+cow_list.join('», «')+"» - угаданы на неверных позициях) и ";
                 }
                 
             $reactions.answer("Результат: " + react_cows + react_bull);

@@ -8,17 +8,20 @@ theme: /
     state: Правила
         q!: $regex</start>
         q!: Давай поиграем
-        a: Игра больше-меньше. Загадаю число от 0 до 100, ты будешь отгадывать. Начнём?
+        a: Привет! Давай поиграем в игру "Быки и коровы"?
         go!: Согласен?
 
         state: Согласен?
 
             state: Да
-                intent: /согласие
-                go!: /Game
-            state: Нет
+                q: Да
+                a: Отлично! Ты уже знаком с правилами?
+                go!: /Правила 
+             state: Нет
                 q: Нет
                 a: Ну и ладно! Если передумаешь — скажи "давай поиграем"
+        
+           
 
     state: Game
         script:
@@ -38,46 +41,46 @@ theme: /
             # сохраняем введенное пользователем число
             var num = ($parseTree._Number);
     
-            if (num === String($session.number)) {  // Используем строгое сравнение === для строк
-                    $reactions.answer("Ты выиграл! Хочешь еще раз?");
-            } else {
-                var bulls = 0;
-                var cows = 0;
-                var num = num.toString();
-                var guess_number = $session.number.toString();
-                var bull_list = [];
-                var cow_list = [];
-                // Считаем быков и коров
-                for (var i = 0; i < 4; i++) {
-                    if (num.charAt(i) === guess_number.charAt(i)) {
-                        bulls++;
-                        bull_list.push(num.charAt(i));
+            var bulls = 0;
+            var cows = 0;
+            var num = num.toString();
+            var guess_number = $session.number.toString();
+            var bull_list = [];
+            var cow_list = [];
+            // Считаем быков и коров
+            for (var i = 0; i < 4; i++) {
+                if (num.charAt(i) === guess_number.charAt(i)) {
+                    bulls++;
+                    bull_list.push(num.charAt(i));
 
-                    } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
-                        cows++;
-                        cow_list.push(num.charAt(i));
+                } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
+                    cows++;
+                    cow_list.push(num.charAt(i));
                         
-                    }
                 }
-                var word;
-                  if (i === 1){
-                      var word = 'одна'
-                  } else if (i === 2) {
-                      var word = 'две'
-                  } else if (i === 3) {
-                      var word = 'три'
-                  } else if (i === 4) {
-                      var word = 'четыре' 
-                  }
+            }
+            var word;
+                if (i === 1){
+                  var word = 'одна'
+              } else if (i === 2) {
+                  var word = 'две'
+              } else if (i === 3) {
+                  var word = 'три'
+              } else if (i === 4) {
+                  var word = 'четыре' 
+              }
+            if (bulls === 4) {
+                 $reactions.answer("Ты выиграл! Хочешь еще раз?");
+            }else {
                 var react_bull;
                 if (bulls === 0) {
                     var react_bull = bulls +' быков.';
-                } else if (bulls ===1){
+                } else if (bulls === 1) {
                     var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";
                 } else {
-                    var react_bull = bulls + ' быка' + "(" + bulls + " цифры: «"+bull_list.join('», «')+"» - угаданы вплоть до позиции).";
+                    var react_bull = bulls + ' быка' + "(" + word + " цифры: «"+bull_list.join('», «')+"» - угаданы вплоть до позиции).";
                 }
-                
+                    
                 var react_cows;
                 if (cows=== 0) {
                     var react_cows = cows + ' коров и ';
@@ -86,8 +89,8 @@ theme: /
                 } else {
                     var react_cows = cows + ' коровы' + "(" + word + " цифры: «"+cow_list.join('», «')+"» - угаданы на неверных позициях) и ";
                 }
-                
-            $reactions.answer("Результат: " + react_cows + react_bull);
+                    
+                $reactions.answer("Результат: " + react_cows + react_bull);
             }
         
     state: NoMatch || noContext = true

@@ -43,21 +43,19 @@ theme: /
             } else {
                 var bulls = 0;
                 var cows = 0;
-                var num =  num.toString();
-                var guess_number = $session.number.toString();
-                var cows_list = new Array();
-                var bulls_lis = new Array();
-                var cows_list = [];
-                var bulls_lis = [];
+                var bullDigits = [];
+                var cowDigits = [];
+                
+                // Считаем быков и коров
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
-                        bulls_list.push(num.charAt(i)); 
+                        bullDigits.push(num.charAt(i)); // Добавляем цифру быка
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
-                        cows_list.push(num.charAt(i)); 
+                        cowDigits.push(num.charAt(i)); // Добавляем цифру коровы
+                    }
                 }
-            }
                 var react_bull;
                 if (bulls === 0) {
                     var react_bull = 'быков';

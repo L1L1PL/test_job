@@ -45,16 +45,13 @@ theme: /
                 var cows = 0;
                 var num = num.toString();
                 var guess_number = $session.number.toString();
-                let bullDigits = []; 
-                
                 // Считаем быков и коров
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
-                        bullDigits.push(num.charAt(i)); // Добавляем цифру быка
+
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
-                        cowDigits.push(num.charAt(i)); // Добавляем цифру коровы
                     }
                 }
                 var react_bull;

@@ -45,6 +45,8 @@ theme: /
                 var cows = 0;
                 var num = num.toString();
                 var guess_number = $session.number.toString();
+                let bullDigits = new Array();
+                let cowDigits = new Array(); 
                 let bullDigits = []; // Массив для цифр, угаданных как быки
                 let cowDigits = [];  // Массив для цифр, угаданных как коровы
                 

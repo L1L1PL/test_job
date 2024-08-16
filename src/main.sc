@@ -45,8 +45,8 @@ theme: /
                 var cows = 0;
                 var num =  num.toString();
                 var guess_number = $session.number.toString();
-                let items_cows = []
-                let items_bulls = []
+                let items_cows = [];
+                let items_bulls = [];
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;

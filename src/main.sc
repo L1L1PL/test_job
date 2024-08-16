@@ -59,16 +59,16 @@ theme: /
                         
                     }
                 }
-                function def_numb(i, list){
+                function def_numb(i, list) {
                     var word;
                     if (i === 2) {
-                          var word = "две цифры: «"list[0]+"» и «"list[1]+"» - угаданы "
-                      } else if (i === 3) {
-                          var word = "три цифры: «"list[0]+"», «"list[1]+"» и «"list[2]+"» - угаданы "
-                      } else if (i === 4) {
-                          var word = "четыре цифры: «"list[0]+"», «"list[1]+"», «"list[2]+"» и «"list[3]+"» - угаданы "
-                      }
-                    return(word)
+                        word = "две цифры: «" + list[0] + "» и «" + list[1] + "» - угаданы";
+                    } else if (i === 3) {
+                        word = "три цифры: «" + list[0] + "», «" + list[1] + "» и «" + list[2] + "» - угаданы";
+                    } else if (i === 4) {
+                        word = "четыре цифры: «" + list[0] + "», «" + list[1] + "», «" + list[2] + "» и «" + list[3] + "» - угаданы";
+                    }
+                    return word;
                 }
                 var react_bull;
                 if (bulls === 0) {
@@ -85,14 +85,11 @@ theme: /
                 } else if (cows === 1) {
                     var react_cows = cows + ' корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
                 } else {
-                    var react_cows = console.log(def_numb(cows, cow_list)) + "на неверных позициях) и "
-
+                    var react_cows = def_numb(cows, cow_list) + " (на неверных позициях) и ";
                 }
                 
-            
-            
             $reactions.answer("Результат: " + react_cows + react_bull);
-            }
+        }
         
     state: NoMatch || noContext = true
         event!: noMatch

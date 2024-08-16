@@ -103,6 +103,8 @@
       "text" : "играть"
     }, {
       "text" : "давай поиграем"
+    }, {
+      "text" : "заново"
     } ],
     "classificationRules" : {
       "refs" : [ ]

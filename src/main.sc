@@ -46,7 +46,10 @@ theme: /
                 var num =  num.toString();
                 var guess_number = $session.number.toString();
                 for (var i = 0; i < 4; i++) {
-                    $reactions.answer(num.charAt(i))
+                    if (num.charAt(i) === guess_number.charAt(i)) {
+                        bulls++;
+                    }
+                    $reactions.answer(bulls)
                 }    
             
             }

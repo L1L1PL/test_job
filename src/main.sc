@@ -40,6 +40,7 @@ theme: /
     
             if (num === String($session.number)) {  // Используем строгое сравнение === для строк
                     $reactions.answer("Ты выиграл! Хочешь еще раз?");
+            }
 
         
     state: NoMatch || noContext = true

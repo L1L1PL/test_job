@@ -5,11 +5,13 @@ require: common.js
     module = sys.zb-common
 theme: /
 
-    state: Правила
+    state: Start
         q!: $regex</start>
         q!: привет
         a: Привет! Давай поиграем в игру "Быки и коровы"?
+        go!: /Статус 
         
+    state: Статус
         state: Согласие
             q: да
             q: давай
@@ -59,10 +61,18 @@ theme: /
                     var digits = '0123456789';
                     var usedDigits = [];
                     var number = '';
-                
+                    
+                    // Генерируем первую цифру без учета 0
+                    var firstDigits = '123456789';
+                    var randomIndex = Math.floor(Math.random() * firstDigits.length);
+                    var digit = firstDigits[randomIndex];
+                    usedDigits.push(digit);
+                    number += digit;
+                    
+                    // Генерируем оставшиеся 3 цифры
                     while (number.length < 4) {
-                        var randomIndex = Math.floor(Math.random() * digits.length);
-                        var digit = digits[randomIndex];
+                        randomIndex = Math.floor(Math.random() * digits.length);
+                        digit = digits[randomIndex];
                 
                         // Проверяем, чтобы цифра не повторялась
                         if (usedDigits.indexOf(digit) === -1) {
@@ -70,10 +80,10 @@ theme: /
                             number += digit;
                         }
                     }
-                
+                    
                     return number;
-                
                 }
+                
                 $session.number = getRandomIntInclusive();
                 //$reactions.transition("/Проверка");
             go: /Проверка
@@ -119,6 +129,7 @@ theme: /
                 
                     if (bulls === 4) {
                          $reactions.answer("Ты выиграл! Хочешь еще раз?");
+                         $reactions.transition("/Статус");
                     }
                     
                     else {

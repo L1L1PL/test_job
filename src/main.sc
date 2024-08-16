@@ -62,8 +62,8 @@ theme: /
                 var react_bull;
                 if (bulls === 0) {
                     var react_bull = bulls +' быков.';
-                } 
-                    var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";;
+                } else if (bulls ===1){
+                    var react_bull = bulls + ' бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";
                 } else {
                     var react_bull = ' быка';
                 }
@@ -77,8 +77,6 @@ theme: /
                     var react_cows = cows + ' коровы' + "("cows" цифры: «"+cow_list.join("», «") "- угаданы на неверных позициях) и ";
                 }
                 
-            
-            
             $reactions.answer("Результат: " + react_cows + react_bull);
             }
         

@@ -43,10 +43,19 @@ theme: /
                 $reactions.answer("Ты выиграл! Хочешь еще раз?");
             }
             else
-                if (num < $session.number)
-                    $reactions.answer(selectRandomArg(["Мое число больше!", "Бери выше", "Попробуй число больше"]));
-                else $reactions.answer(selectRandomArg(["Мое число меньше!", "Подсказка: число меньше", "Дам тебе еще одну попытку! Мое число меньше."]));
+                int bulls = 0;
+                int cows = 0;
+        
+                for (int i = 0; i < 4; i++) {
+                    if (guess.charAt(i) == $session.number.charAt(i)) {
+                        bulls++;
+                    } else if (secretNumber.contains(String.valueOf(guess.charAt(i)))) {
+                        cows++;
+                    return(("Быки: " + bulls + ", Коровы: " + cows))
+                    }
+                }
 
+        return new Result(bulls, cows);
     state: NoMatch || noContext = true
         event!: noMatch
         random:

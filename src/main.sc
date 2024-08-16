@@ -44,26 +44,25 @@ theme: /
         a: Давай напомню тебе правила.
         a:Игра рассчитана на двух игроков (пользователь и чатбот). Чатбот задумывает тайное 4-значное число с неповторяющимися цифрами. Пользователь делает первую попытку отгадать число. Попытка — это 4-значное число с неповторяющимися цифрами, сообщаемое чатботу. Чатбот сообщает в ответ, сколько цифр угадано без совпадения с их позициями в тайном числе (то есть количество коров) и сколько угадано вплоть до позиции в тайном числе (то есть количество быков). Например: Задумано чатботом тайное число «3219». Попытка: «2310». Результат: две «коровы» (две цифры: «2» и «3» — угаданы на неверных позициях) и один «бык» (одна цифра «1» угадана вплоть до позиции).
         
-        
     
     state: Game_start
         a: Я загадал число. Попробуй угадать
-        go: Game
-        state: Game
+        go!: /Игра
+
+    state: Игра
             script:
                 function getRandomIntInclusive(min, max) {
                     var minCeiled = Math.ceil(min);
                     var maxFloored = Math.floor(max);
                     return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
-                }
+                    }
                 $session.number = getRandomIntInclusive(999, 10000);
-                $reactions.transition("/Проверка");
-            
+                //$reactions.transition("/Проверка");
+            go: /Проверка
             
                 
-        state: Проверка
+    state: Проверка
             intent: /число
-            a: Я загадал число {{ $session.number}}.
             script:
                 # сохраняем введенное пользователем число
                 var num = ($parseTree._Number);
@@ -129,6 +128,7 @@ theme: /
                         $reactions.answer("Результат: " + react_cows + react_bull);
                     }
                 }
+    
         
     state: NoMatch || noContext = true
         event!: noMatch

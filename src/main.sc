@@ -49,12 +49,21 @@ theme: /
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
-                    cows++;
+                        cows++;
                 }
             }
-            // Выводим количество быков и коров
-            $reactions.answer("Быки: " + bulls + ", Коровы: " + cows);
+        go!: Ответ
+        
+    state: Ответ
+        script:
+            if (bulls > 1){
+                var react_bull = 'быков';
             }
+            else {
+                var react_bull = 'бык';
+            }
+            $reactions.answer("Быки: " + react_bull + ", Коровы: " + cows);
+            
 
 
         

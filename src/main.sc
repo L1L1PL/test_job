@@ -47,8 +47,8 @@ theme: /
                 var guess_number = $session.number.toString()
                 for (var i = 0; i < 4; i++) {
                     $reactions.answer((num.charAt(i))
-                
-                
+                }    
+            
             }
 
 

@@ -90,8 +90,7 @@ theme: /
                     react_cows = def_numb(cows, cow_list) + " (на неверных позициях) и ";
                 }
 
-                
-            $reactions.answer("Результат: " + react_cows + react_bull);
+                $reactions.answer("Результат: " + react_cows + react_bull);
         }
         
     state: NoMatch || noContext = true

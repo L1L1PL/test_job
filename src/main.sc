@@ -45,16 +45,15 @@ theme: /
                 var cows = 0;
                 var num =  num.toString();
                 var guess_number = $session.number.toString();
-                let items_cows = new Array();
-                let items_bulls = new Array();
-                let items_cows = [];
-                let items_bulls = [];
+                var cows_list = [];
+                var bulls_lis = [];
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
-                        items_bulls[i] == num.charAt(i);
+                        bulls_list.push(num.charAt(i)); 
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
+                        cows_list.push(num.charAt(i)); 
                 }
             }
                 var react_bull;

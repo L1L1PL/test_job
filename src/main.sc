@@ -41,7 +41,8 @@ theme: /
             // Проверяем, угадал ли пользователь загаданное число, и выводим соответствующую реакцию
             if (num == $session.number) {
                 $reactions.answer("Ты выиграл! Хочешь еще раз?");
-            } else {
+            } 
+            else {
                 int bulls = 0;
                 int cows = 0;
                 for (int i = 0; i < 4; i++) {

@@ -51,12 +51,13 @@ theme: /
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
                 }
+            }
                 var react_bull;
                 if (bulls === 0) {
                     var react_bull = 'быков';
-                }else if (bulls === 1) {
+                } else if (bulls === 1) {
                     var react_bull = 'бык';
-                }else {
+                } else {
                     var react_bull = 'быка';
                 }
             

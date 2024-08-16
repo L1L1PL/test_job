@@ -45,37 +45,41 @@ theme: /
                 var cows = 0;
                 var num = num.toString();
                 var guess_number = $session.number.toString();
-                const bulls = [];
+                var bull_list = [];
+                var cow_list = [];
                 // Считаем быков и коров
                 for (var i = 0; i < 4; i++) {
                     if (num.charAt(i) === guess_number.charAt(i)) {
                         bulls++;
+                        bull_list.push(num.charAt(i));
 
                     } else if (guess_number.indexOf(num.charAt(i)) !== -1) {
                         cows++;
+                        cow_list.push(num.charAt(i));
                         
                     }
                 }
                 var react_bull;
                 if (bulls === 0) {
-                    var react_bull = 'быков';
+                    var react_bull = bulls +'быков';
                 } else if (bulls === 1) {
-                    var react_bull = 'бык';
+                    var react_bull = bulls + 'бык' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции)";;
                 } else {
                     var react_bull = 'быка';
                 }
                 
                 var react_cows;
                 if (cows=== 0) {
-                    var react_cows = 'коров';
-                } else if (bulls === 1) {
-                    var react_cows = 'корова';
+                    var react_cows = cows + 'коров';
+                } else if (cows === 1) {
+                    var react_cows = cows + 'корова' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици)";
                 } else {
-                    var react_cows = 'коровы';
+                    var react_cows = cows + 'коровы' + "(цифры: «"+cow_list+"» - угаданы на неверных позициях)";
                 }
+                
             
             
-            $reactions.answer("Быки: " + bulls +" "+ react_bull + ", Коровы: " + cows + " " + react_cows);
+            $reactions.answer("Результат: " + );
             }
         
     state: NoMatch || noContext = true

@@ -22,22 +22,19 @@ theme: /
 
   
     state: Game_start
-        a: Я загадал число. Попробуй угадать
         script:
-                $session.number = getRandomIntInclusive();
-                $reactions.transition("/Проверка");
+            $session.number = getRandomIntInclusive();
+        go: /Проверка
             
     state: Проверка
+        a: Я загадал число. Попробуй угадать
         intent: /число
         script:
-            # сохраняем введенное пользователем число
-            var num = $parseTree._Number;
-        
-            # проверяем угадал ли пользователь загаданное число и выводим соответствующую реакцию
-            if (num == $session.number) {
-                    $reactions.answer("Ты выиграл! Хочешь еще раз?");
-            }else{
-                check(num)}
+            if (($parseTree._Number).toString().length != 4) {
+                $reactions.answer("Пожалуйста, напиши четырехзначное число.");
+            }else{checkNumber($parseTree._Number, $session.number);}
+    
+             
                 
     state: Ответ
         q!: Ответ

@@ -18,7 +18,25 @@ function getRandomIntInclusive() {
     return res.join('');
 }
 
-function check(num){
-    var num = '5';
-    return($reactions.answer("Попробуй еще"));
+function hasDuplicateDigits(number) {
+    var digits = number.toString().split(''); 
+    var seen = {}; 
+    for (var i = 0; i < digits.length; i++) {
+        var digit = digits[i];
+        if (seen[digit]) {
+            return true; 
+        }
+        seen[digit] = true;
+    }
+    return false; 
+}
+
+function checkNumber(num, guess) {
+    if (hasDuplicateDigits(num)) {
+        $reactions.answer("Цифры не могут повторяться. Попробуй снова.");
+    }else if (num == guess) {
+        $reactions.answer("Ты выиграл! Хочешь еще раз?");
+    } else {
+        $reactions.answer("Попытки");
+    }
 }

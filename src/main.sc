@@ -42,7 +42,9 @@ theme: /
         script:
             if (($parseTree._Number).toString().length != 4) {
                 $reactions.answer("Пожалуйста, напиши четырехзначное число.");
-            }else{checkNumber($parseTree._Number, $session.number);}
+            } else if (hasDuplicateDigits($parseTree._Number)) {  
+                 $reactions.answer("Цифры не могут повторяться. Попробуй снова.");
+            } else {checkNumber($parseTree._Number, $session.number);}
     
 
     state: Ответ

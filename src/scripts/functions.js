@@ -32,26 +32,20 @@ function hasDuplicateDigits(number){
 }
 
 function checkNumber(num, guess) {
-    if (hasDuplicateDigits(num)) {
-        $reactions.answer("Цифры не могут повторяться. Попробуй снова.");
-    }else if (num === guess) {
-        $reactions.answer("Ты выиграл! Хочешь еще раз?");
-    }else {
-        var bulls = 0;
-        var cows = 0;
-        var bull_list = [];
-        var cow_list = [];
-        var num = num.toString()
-        for (var i = 0; i < 4; i++) {
-            if (num.charAt(i) === guess.toString().charAt(i)) {
-                bulls++;
-                bull_list.push(num.charAt(i));
-        
-            } else if (guess.toString().indexOf(num.charAt(i)) !== -1) {
-                cows++;
-                cow_list.push(num.charAt(i));
-                }    
-            }
+    var bulls = 0;
+    var cows = 0;
+    var bull_list = [];
+    var cow_list = [];
+    var num = num.toString()
+    for (var i = 0; i < 4; i++) {
+        if (num.charAt(i) === guess.toString().charAt(i)) {
+            bulls++;
+            bull_list.push(num.charAt(i));
+        } else if (guess.toString().indexOf(num.charAt(i)) !== -1) {
+            cows++;
+            cow_list.push(num.charAt(i));
+            }    
+        }
     } return answer(bulls, cows, bull_list, cow_list)
 }   
 
@@ -67,7 +61,10 @@ function ReturnWord(numb){
 
 function answer(bulls, cows, bull_list, cow_list){
     var react_bull;
-    if (bulls === 0) {
+    if (bulls ===4){
+        return($reactions.answer("Ты выиграл! Хочешь еще раз?"));
+    }
+    else if (bulls === 0) {
         var react_bull = bulls +' быков.';
     } else if (bulls === 1) {
         var react_bull = bulls + ' бык ' + "(одна цифра: «"+bull_list+"» - угадана вплоть до позиции).";

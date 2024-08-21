@@ -45,8 +45,7 @@ function checkNumber(num, guess) {
             cows++;
             cow_list.push(num.charAt(i));
             }    
-        }
-    } return answer(bulls, cows, bull_list, cow_list)
+        } return answer(bulls, cows, bull_list, cow_list)
 }   
 
 function ReturnWord(numb){

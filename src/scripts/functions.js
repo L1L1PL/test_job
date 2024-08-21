@@ -82,7 +82,7 @@ function answer(bulls, cows, bull_list, cow_list){
     } else if (cows === 1) {
         var react_cows = cows + ' корова ' + "(одна цифра: «"+cow_list+"» - угадана на неверной позици) и ";
     } else {
-        var word = ReturnWord(bulls)
+        var word = ReturnWord(cows)
         var react_cows = cows + ' коровы ' + "(" + word + " цифры: «"+cow_list.join('», «')+"» - угаданы на неверных позициях) и ";
     }
     return($reactions.answer("Результат: " + react_cows + react_bull));

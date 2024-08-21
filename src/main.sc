@@ -18,15 +18,19 @@ theme: /
         
         state: Несогласие
             q: нет
+            q: нет || fromState = "/Rules"
             a: Жаль. Если передумаешь — скажи "давай поиграем" :-)
     
     state: Rules
         q!: правила
         q: * (нет) * || fromState = "/Start/Согласие"
         a: Расскажу правила
+        a: Начнем игру?
 
-  
-    state: Game_start
+    state: Game
+        q!: Заново 
+        q: да || fromState = "/Start/Согласие"
+        q: да || fromState = "/Rules"
         a: Я загадал число. Попробуй угадать
         script:
             $session.number = getRandomIntInclusive();
@@ -39,8 +43,7 @@ theme: /
                 $reactions.answer("Пожалуйста, напиши четырехзначное число.");
             }else{checkNumber($parseTree._Number, $session.number);}
     
-             
-                
+
     state: Ответ
         q!: Ответ
         q!: $regex</answer>

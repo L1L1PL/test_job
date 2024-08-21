@@ -33,6 +33,7 @@ theme: /
 
     state: Game_start
         q!: * (*заново*|*еще*|*еще раз*|*новая игра*|*игра*|*играть*) *
+        q!: $regex</new_game>
         q: да || fromState = "/Start/Согласие"
         q: да || fromState = "/Rules"
         a: Я загадал число. Попробуй угадать

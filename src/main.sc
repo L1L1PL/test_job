@@ -15,19 +15,24 @@ theme: /
         state: Согласие
             q: * (*хорошо*|*да*|*давай*|*ок*) *
             a: Отлично! Ты уже знаком с правилами?
-            go!: /Game_start
+        
         state: Несогласие
             q: нет
             a: Жаль. Если передумаешь — скажи "давай поиграем" :-)
+    
+    state: Rules
+        q!: правила
+        q: * (нет) * || fromState = "/Start/Согласие"
+        a: Расскажу правила
 
   
     state: Game_start
+        a: Я загадал число. Попробуй угадать
         script:
             $session.number = getRandomIntInclusive();
         go: /Проверка
             
     state: Проверка
-        a: Я загадал число. Попробуй угадать
         intent: /число
         script:
             if (($parseTree._Number).toString().length != 4) {

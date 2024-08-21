@@ -23,6 +23,7 @@ theme: /
     
     state: Rules
         q!: правила
+        q!: $regex</rules>
         q: * (нет) * || fromState = "/Start/Согласие"
         a: Расскажу правила
         a: Начнем игру?

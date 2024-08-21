@@ -18,7 +18,7 @@ function getRandomIntInclusive() {
     return res.join('');
 }
 
-function hasDuplicateDigits(number) {
+function hasDuplicateDigits(number){
     var digits = number.toString().split(''); 
     var seen = {}; 
     for (var i = 0; i < digits.length; i++) {
@@ -34,7 +34,7 @@ function hasDuplicateDigits(number) {
 function checkNumber(num, guess) {
     if (hasDuplicateDigits(num)) {
         $reactions.answer("Цифры не могут повторяться. Попробуй снова.");
-    }else if (num == guess) {
+    }else if (num === guess) {
         $reactions.answer("Ты выиграл! Хочешь еще раз?");
     }else {
         var bulls = 0;
